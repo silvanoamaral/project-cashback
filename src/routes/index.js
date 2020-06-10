@@ -8,7 +8,7 @@ import CadastrarCompras from '../pages/CadastrarCompras'
 import Comprar from '../pages/Comprar'
 import NotFound from '../pages/NotFound'
 
-export default () => (
+const Router = () => (
   <Switch>
     <Route path="/" exact component={Login} />
     <Route path="/cadastrar-revendedor" component={CadastrarRevendedor} />
@@ -18,3 +18,5 @@ export default () => (
     <Route path="*" component={NotFound} />
   </Switch>
 )
+
+export default Router
