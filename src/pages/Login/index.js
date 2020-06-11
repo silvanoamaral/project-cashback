@@ -32,7 +32,7 @@ const Login = props => {
   const onSubmit = async data => {
     if(await verificarCadastro(data)) {
       setMessage('Usuário cadastrado, direciona para página restrita')
-      history.push('/comprar')
+      history.push('/listagem-compras')
     } else {
       setMessage('Usuário ou senha inválidos')
     }

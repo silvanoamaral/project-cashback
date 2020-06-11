@@ -44,6 +44,12 @@ input[type=number] {
 
   > div {
     padding: 0 15px;
+
+    &.content {
+      padding: 0;
+      width: 100%;
+      display: flex;
+    }
   }
 
   @media (min-width: 768px) {
@@ -65,7 +71,3 @@ input[type=number] {
   }
 }
 
-.content {
-  width: 100%;
-  min-height: 600px;
-}
