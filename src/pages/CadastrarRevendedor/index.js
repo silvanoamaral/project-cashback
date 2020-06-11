@@ -69,7 +69,7 @@ const CadastrarRevendedor = () => {
         <input name="senha" ref={register({ required: true })} />
         {errors.senha && 'Senha is required.'}
         
-        <input type="submit" />
+        <input type="submit" disabled={loading} value={loading ? 'Aguarde...': 'Entrar'} />
       </form>
     </div>
   )
