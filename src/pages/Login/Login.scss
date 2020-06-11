@@ -1,0 +1,12 @@
+.link__cadastrar {
+  font-size: 12px;
+  margin-top: 10px;
+  
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

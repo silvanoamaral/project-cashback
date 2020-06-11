@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import './Login.scss'
+
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
 
@@ -67,7 +69,7 @@ const Login = props => {
         />
       </form>
 
-      <p>Não tem uma conta? <Link to='/cadastrar-revendedor'>Cadastre-se</Link></p>
+      <p className='link__cadastrar'>Não tem uma conta? <Link to='/cadastrar-revendedor'>Cadastre-se</Link></p>
     </div>
   )
 }

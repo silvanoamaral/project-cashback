@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './InputCustomizado.scss'
+
 const InputCustomizado = props => {
   const {
     type,
@@ -11,14 +13,16 @@ const InputCustomizado = props => {
   } = props
 
   return(
-    <div className='group field'>
+    <div className='field'>
       <label>{label}</label>
       <input
         type={type}
         name={name}
         ref={inputRef({ required: true })}
       />
-      {error[name] && message}
+      {error[name] &&
+        <p className='error'>{message}</p>
+      }
     </div>
   )
 }
