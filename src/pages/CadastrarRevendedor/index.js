@@ -2,11 +2,16 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
+import InputSubmit from '../../components/InputSubmit'
+import InputCustomizado from '../../components/InputCustomizado'
+
 const CadastrarRevendedor = () => {
   const { register, handleSubmit, errors } = useForm()
   const [message, setMessage] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const load = async data => {
+    setLoading(true)
     const response = await axios({
       url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/cadastro',
       method: 'post',
@@ -18,13 +23,17 @@ const CadastrarRevendedor = () => {
     } else {
       setMessage('Algo de errado não está certo, tente novamente.')
     }
+
+    setLoading(false)
   }
 
   const verificarCadastro = async cpf => {
+    setLoading(true)
     return await axios({
       url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/cadastro',
       method: 'get'
     }).then(res => {
+      setLoading(false)
       return Object.keys(res.data.filter(element => Number(element.cpf) === Number(cpf))).length
     })
   }
@@ -44,32 +53,44 @@ const CadastrarRevendedor = () => {
       }
       <h2>Cadastrar revendedor(a)</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Nome completo</label>
-        <input name="nome" ref={register({ required: true })} />
-        {errors.nome && 'nome is required.'}
-
-        <label>CPF</label>
-        <input name="cpf" ref={register({ required: true })} />
-        {errors.cpf && 'CPF is required.'}
-        
-        <label>E-mail</label>
-        <input
-          type="email"
-          name="email"
-          ref={register({
-            required: true,
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: "Enter a valid e-mail address",
-            },
-          })}
+        <InputCustomizado
+          label='Nome completo'
+          name='nome'
+          inputRef={register}
+          error={errors}
+          message='Nome é obrigatório'
         />
 
-        <label>Senha</label>
-        <input name="senha" ref={register({ required: true })} />
-        {errors.senha && 'Senha is required.'}
+        <InputCustomizado
+          label='CPF'
+          name='cpf'          
+          inputRef={register}
+          error={errors}
+          message='CPF é obrigatório'
+        />
+
+        <InputCustomizado
+          label='E-mail'
+          type='email'
+          name='email'          
+          inputRef={register}
+          error={errors}
+          message='E-mail é obrigatório'
+        />
+
+        <InputCustomizado
+          type='password'
+          label='Senha'
+          name='email'          
+          inputRef={register}
+          error={errors}
+          message='Senha é obrigatório'
+        />
         
-        <input type="submit" disabled={loading} value={loading ? 'Aguarde...': 'Entrar'} />
+        <InputSubmit
+          loading={loading}
+          label='Entrar'
+        />
       </form>
     </div>
   )

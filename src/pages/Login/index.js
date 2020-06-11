@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import InputSubmit from '../../components/InputSubmit'
+import InputCustomizado from '../../components/InputCustomizado'
+
 const Login = props => {
   const { history } = props
   const { register, handleSubmit, errors } = useForm()
@@ -40,26 +43,28 @@ const Login = props => {
       }
       <h2>Entrar com e-mail e senha:</h2>
       <form onSubmit={handleSubmit(onSubmit)}>       
-        
-        <label>E-mail</label>
-        <input
-          type="email"
-          name="email"
-          ref={register({
-            required: true,
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: "Enter a valid e-mail address",
-            },
-          })}
+        <InputCustomizado
+          label='E-mail'
+          type='email'
+          name='email'          
+          inputRef={register}
+          error={errors}
+          message='E-mail é obrigatório'
         />
-        {errors.email && 'email is required.'}
 
-        <label>Senha</label>
-        <input name="senha" ref={register({ required: true })} />
-        {errors.senha && 'Senha is required.'}
-        
-        <input type="submit" disabled={loading} value={loading ? 'Aguarde...': 'Entrar'} />
+        <InputCustomizado
+          type='password'
+          label='Senha'
+          name='senha'          
+          inputRef={register}
+          error={errors}
+          message='Senha é obrigatório'
+        />
+
+        <InputSubmit
+          loading={loading}
+          label='Acessar Conta'
+        />
       </form>
 
       <p>Não tem uma conta? <Link to='/cadastrar-revendedor'>Cadastre-se</Link></p>

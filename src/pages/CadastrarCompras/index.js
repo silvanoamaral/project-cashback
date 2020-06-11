@@ -2,7 +2,9 @@ import React from 'react'
 
 const CadastrarCompras = () => {
   return(
-    <h2>Cadastrar Compras</h2>
+    <div>
+      <h2>Cadastrar Compras</h2>
+    </div>
   )
 }
 
