@@ -9,7 +9,9 @@ const InputCustomizado = props => {
     name,
     inputRef,
     error,
-    message
+    message,
+    onChange,
+    max
   } = props
 
   return(
@@ -18,7 +20,9 @@ const InputCustomizado = props => {
       <input
         type={type}
         name={name}
-        ref={inputRef({ required: true })}
+        ref={inputRef}
+        onChange={onChange}
+        maxLength={max}
       />
       {error[name] &&
         <p className='error'>{message}</p>

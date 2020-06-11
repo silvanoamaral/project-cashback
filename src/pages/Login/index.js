@@ -34,22 +34,30 @@ const Login = props => {
       setMessage('Usuário cadastrado, direciona para página restrita')
       history.push('/comprar')
     } else {
-      setMessage('Usuário não cadastrado.')
+      setMessage('Usuário ou senha inválidos')
     }
   }
 
   return(
     <div>
-      {message &&
-        <p>{message}</p>
-      }
       <h2>Entrar com e-mail e senha:</h2>
+
+      {message &&
+        <p className='message alert'>{message}</p>
+      }
+      
       <form onSubmit={handleSubmit(onSubmit)}>       
         <InputCustomizado
           label='E-mail'
-          type='email'
           name='email'          
-          inputRef={register}
+          inputRef={
+            register({
+              required: "Required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+              }
+            })
+          }
           error={errors}
           message='E-mail é obrigatório'
         />
@@ -58,7 +66,7 @@ const Login = props => {
           type='password'
           label='Senha'
           name='senha'          
-          inputRef={register}
+          inputRef={register({ required: true })}
           error={errors}
           message='Senha é obrigatório'
         />

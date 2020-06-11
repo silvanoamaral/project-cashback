@@ -6,7 +6,7 @@ import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
 
 const CadastrarRevendedor = () => {
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit, setValue, reset, errors } = useForm()
   const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -18,13 +18,15 @@ const CadastrarRevendedor = () => {
       data
     })
 
+    setLoading(false)
+
     if(response.status === 201) {
       setMessage('Cadastro realizado com successo ;)')
+      reset()
+      document.querySelector('form').querySelectorAll('input')[0].focus()
     } else {
       setMessage('Algo de errado não está certo, tente novamente.')
     }
-
-    setLoading(false)
   }
 
   const verificarCadastro = async cpf => {
@@ -40,40 +42,62 @@ const CadastrarRevendedor = () => {
 
   const onSubmit = async data => {
     if(await verificarCadastro(data.cpf)) {
-      setMessage(`O CPF ${data.cpf} está cadastrado`)
+      setMessage(`O CPF ${data.cpf}, já existente.`)
     } else {
       load(data)
     }
   }
 
+  const maskCpf = str => {
+    let value = str.replace( /\D/g , "")
+    return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
+  }
+
+  const onChangeInput = event => {
+    setValue([{
+      'cpf': maskCpf(event.target.value)
+    }])
+  }
+
   return(
     <div>
-      {message &&
-        <p>{message}</p>
-      }
       <h2>Cadastrar revendedor(a)</h2>
+
+      {message &&
+        <p className='message'>{message}</p>
+      }
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputCustomizado
           label='Nome completo'
           name='nome'
-          inputRef={register}
+          inputRef={register({ required: true }) }
           error={errors}
           message='Nome é obrigatório'
         />
 
         <InputCustomizado
           label='CPF'
-          name='cpf'          
-          inputRef={register}
+          name='cpf'
+          type="type"
+          inputRef={register({ required: true })}
           error={errors}
           message='CPF é obrigatório'
+          onChange={onChangeInput}
+          max={11}
         />
 
         <InputCustomizado
           label='E-mail'
-          type='email'
           name='email'          
-          inputRef={register}
+          inputRef={
+            register({
+              required: "Required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+              }
+            })
+          }
           error={errors}
           message='E-mail é obrigatório'
         />
@@ -81,12 +105,12 @@ const CadastrarRevendedor = () => {
         <InputCustomizado
           type='password'
           label='Senha'
-          name='email'          
-          inputRef={register}
+          name='senha'          
+          inputRef={register({ required: true })}
           error={errors}
           message='Senha é obrigatório'
         />
-        
+
         <InputSubmit
           loading={loading}
           label='Entrar'

@@ -6,4 +6,8 @@
   font-size: 0.875rem;
   min-width: 64px;
   text-transform: uppercase;
+
+  &:disabled {
+    opacity: .5;
+  }
 }

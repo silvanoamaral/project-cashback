@@ -27,6 +27,16 @@ input {
   border-radius: 5px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -40,6 +50,14 @@ input {
   h2 {
     font-size: 22px;
     margin-bottom: 20px;
+  }
+
+  .message {
+    margin-bottom: 20px;
+
+    &.alert {
+      color: red;
+    }
   }
 }
 
