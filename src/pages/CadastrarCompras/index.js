@@ -121,9 +121,9 @@ const CadastrarCompras = () => {
             <Controller
               as={
                 <RadioGroup className={classes.group}>
-                  <FormControlLabel value='sim' control={<Radio /> } label='Em validação' />
-                  <FormControlLabel value='reprovado' control={<Radio /> } label='Reprovado' />
-                  <FormControlLabel value='aprovado' control={<Radio /> } label='Aprovado' />
+                  <FormControlLabel value='Em validação' control={<Radio /> } label='Em validação' />
+                  <FormControlLabel value='Reprovado' control={<Radio /> } label='Reprovado' />
+                  <FormControlLabel value='Aprovado' control={<Radio /> } label='Aprovado' />
                 </RadioGroup>
               }
               name='status'
