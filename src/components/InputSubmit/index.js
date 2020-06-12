@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './InputSubmit.scss'
 
@@ -19,3 +20,8 @@ const InputSubmit = props => {
 }
 
 export default InputSubmit
+
+InputSubmit.propTypes = {
+  loading: PropTypes.bool,
+  label: PropTypes.string,
+}

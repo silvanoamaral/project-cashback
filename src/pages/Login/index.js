@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -83,3 +84,7 @@ const Login = props => {
 }
 
 export default Login
+
+Login.propTypes = {
+  history: PropTypes.object,
+}

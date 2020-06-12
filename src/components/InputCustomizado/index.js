@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './InputCustomizado.scss'
 
@@ -32,3 +33,14 @@ const InputCustomizado = props => {
 }
 
 export default InputCustomizado
+
+InputCustomizado.propTypes = {
+  type: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  inputRef: PropTypes.func,
+  error: PropTypes.string,
+  message: PropTypes.string,
+  onChange: PropTypes.func,
+  max: PropTypes.number
+}
