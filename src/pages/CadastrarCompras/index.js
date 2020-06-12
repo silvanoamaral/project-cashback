@@ -31,51 +31,50 @@ const CadastrarCompras = () => {
   return(
     <div className='content'>
       <MenuLateral />
-      <div className=''>
+      <div className='col'>
         <h2>Cadastrar Compras</h2>
         
-        <form onSubmit={handleSubmit(onSubmit)}>       
-
-        <InputCustomizado
-          label='Código'
-          name='codigo'          
-          inputRef={register({ required: true })}
-          error={errors}
-          message='Código é obrigatório'
-        />   
-        <InputCustomizado
-          label='Valor'
-          name='valor'        
-          inputRef={register({ required: true })}
-          error={errors}
-          message='Valor é obrigatório'
-        />
-
-        <div className='field'>
-          <label>Date</label>
-          <Controller
-            as={
-              <TextField
-                type="date"
-                className={classes.root}
-                variant="outlined"
-              />
-            }
-            name="date"
-            control={control}
-            defaultValue=""
-            rules={{ required: true }}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <InputCustomizado
+            label='Código'
+            name='codigo'          
+            inputRef={register({ required: true })}
+            error={errors}
+            message='Código é obrigatório'
+          />   
+          <InputCustomizado
+            label='Valor'
+            name='valor'        
+            inputRef={register({ required: true })}
+            error={errors}
+            message='Valor é obrigatório'
           />
-          {errors.date &&
-            <p className='error'>Data é obrigatório</p>
-          }
-        </div>
 
-        <InputSubmit
-          loading={loading}
-          label='Cadastrar compras'
-        />
-      </form>
+          <div className='field'>
+            <label>Data</label>
+            <Controller
+              as={
+                <TextField
+                  type="date"
+                  className={classes.root}
+                  variant="outlined"
+                />
+              }
+              name="date"
+              control={control}
+              defaultValue=""
+              rules={{ required: true }}
+            />
+            {errors.date &&
+              <p className='error'>Data é obrigatório</p>
+            }
+          </div>
+
+          <InputSubmit
+            loading={loading}
+            label='Cadastrar compras'
+          />
+        </form>
       </div>
     </div>
   )

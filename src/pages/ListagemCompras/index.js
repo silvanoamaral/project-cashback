@@ -6,7 +6,7 @@ const ListagemCompras = () => {
   return(
     <div className='content'>
       <MenuLateral />
-      <div className=''>
+      <div className='col'>
         <h2>Olá revendedor(a), veja bem vindo!</h2>
         <h2>Listagem das Compras </h2>
       </div>

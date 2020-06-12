@@ -60,62 +60,64 @@ const CadastrarRevendedor = () => {
   }
 
   return(
-    <div>
-      <h2>Cadastrar revendedor(a)</h2>
+    <div className='content'>
+      <div className='col'>
+        <h2>Cadastrar revendedor(a)</h2>
 
-      {message &&
-        <p className='message'>{message}</p>
-      }
+        {message &&
+          <p className='message'>{message}</p>
+        }
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputCustomizado
-          label='Nome completo'
-          name='nome'
-          inputRef={register({ required: true }) }
-          error={errors}
-          message='Nome é obrigatório'
-        />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <InputCustomizado
+            label='Nome completo'
+            name='nome'
+            inputRef={register({ required: true }) }
+            error={errors}
+            message='Nome é obrigatório'
+          />
 
-        <InputCustomizado
-          label='CPF'
-          name='cpf'
-          type="type"
-          inputRef={register({ required: true })}
-          error={errors}
-          message='CPF é obrigatório'
-          onChange={onChangeInput}
-          max={11}
-        />
+          <InputCustomizado
+            label='CPF'
+            name='cpf'
+            type="type"
+            inputRef={register({ required: true })}
+            error={errors}
+            message='CPF é obrigatório'
+            onChange={onChangeInput}
+            max={11}
+          />
 
-        <InputCustomizado
-          label='E-mail'
-          name='email'          
-          inputRef={
-            register({
-              required: "Required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
-              }
-            })
-          }
-          error={errors}
-          message='E-mail é obrigatório'
-        />
+          <InputCustomizado
+            label='E-mail'
+            name='email'          
+            inputRef={
+              register({
+                required: "Required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+                }
+              })
+            }
+            error={errors}
+            message='E-mail é obrigatório'
+          />
 
-        <InputCustomizado
-          type='password'
-          label='Senha'
-          name='senha'          
-          inputRef={register({ required: true })}
-          error={errors}
-          message='Senha é obrigatório'
-        />
+          <InputCustomizado
+            type='password'
+            label='Senha'
+            name='senha'          
+            inputRef={register({ required: true })}
+            error={errors}
+            message='Senha é obrigatório'
+          />
 
-        <InputSubmit
-          loading={loading}
-          label='Entrar'
-        />
-      </form>
+          <InputSubmit
+            loading={loading}
+            label='Cadastrar'
+          />
+        </form>
+      </div>
     </div>
   )
 }

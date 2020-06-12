@@ -49,6 +49,12 @@ input[type=number] {
       padding: 0;
       width: 100%;
       display: flex;
+      justify-content: space-between;
+
+      .col {
+        width: 80%;
+        margin: 0 auto;
+      }
     }
   }
 
