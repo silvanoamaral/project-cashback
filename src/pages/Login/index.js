@@ -17,7 +17,7 @@ const Login = props => {
   const verificarCadastro = async data => {
     setLoading(true)
     return await axios({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/cadastro',
+      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
       method: 'get'
     }).then(res => {
       const cond = res.data.filter(element =>

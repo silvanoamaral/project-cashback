@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
+import { maskCpf } from '../../utils/mask'
+
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
 
@@ -13,7 +15,7 @@ const CadastrarRevendedor = () => {
   const load = async data => {
     setLoading(true)
     const response = await axios({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/cadastro',
+      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
       method: 'post',
       data
     })
@@ -46,11 +48,6 @@ const CadastrarRevendedor = () => {
     } else {
       load(data)
     }
-  }
-
-  const maskCpf = str => {
-    let value = str.replace( /\D/g , "")
-    return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
   }
 
   const onChangeInput = event => {
