@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
 import { useApi } from '../../utils/useApi'
+import {
+  calcularCashBack,
+  formatDate
+} from '../../utils'
+
+import config from '../../../config'
 
 import MenuLateral from '../../components/MenuLateral'
 import './ListagemCompras.scss'
@@ -10,7 +16,7 @@ const ListagemCompras = () => {
  
   const load = async () => {
     const response = await useApi({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/comprar',
+      url: `${config.urlBase}/comprar`,
       method: 'get'
     })
 
@@ -24,16 +30,6 @@ const ListagemCompras = () => {
   useEffect(() => {
     load()
   }, [])
-
-  const formatDate = str => {
-    const date = new Date(str).toLocaleDateString()
-    return date
-  }
-
-  const calcularCashBack = valor => {
-    const desconto = (parseFloat(valor) / 100) *5
-    return desconto.toFixed(2).toString().replace('.',',')
-  }
 
   return(
     <div className='content'>

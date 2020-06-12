@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import './Login.scss'
 
 import { useApi } from '../../utils/useApi'
+import config from '../../../config'
 
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
@@ -19,7 +20,7 @@ const Login = props => {
   const verificarCadastro = async data => {
     setLoading(true)
     const res = await useApi({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
+      url: `${config.urlBase}/revendedores`,
       method: 'get'
     })
 

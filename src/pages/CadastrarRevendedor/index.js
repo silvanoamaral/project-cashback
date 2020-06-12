@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 
 import { maskCpf } from '../../utils/mask'
 import { useApi } from '../../utils/useApi'
+import config from '../../../config'
 
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
@@ -15,7 +16,7 @@ const CadastrarRevendedor = () => {
   const load = async data => {
     setLoading(true)
     const response = await useApi({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
+      url: `${config.urlBase}/revendedores`,
       method: 'post',
       data
     })
@@ -33,7 +34,7 @@ const CadastrarRevendedor = () => {
   const verificarCadastro = async cpf => {
     setLoading(true)
     const res = await useApi({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
+      url: `${config.urlBase}/revendedores`,
       method: 'get'
     })
     return Object.keys(res.data.filter(element => element.cpf === cpf)).length    

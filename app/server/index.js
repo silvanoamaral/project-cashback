@@ -2,14 +2,10 @@ const express = require('express')
 const path = require('path')
 
 const app = express()
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 3001
 
-/* const { obterEntrega } = require('../modules/obterEntrega')
-const { obterBovespa } = require('../modules/obterBovespa')
-
-app.use('/api/entrega', obterEntrega)
-app.use('/api/bovespa', obterBovespa)
- */
+const { consolidado } = require('../modules/consolidado')
+app.use('/api/consolidado', consolidado)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../../build')))

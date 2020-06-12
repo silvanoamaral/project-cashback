@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { maskPreco } from '../../utils/mask'
 import { useApi } from '../../utils/useApi'
+import config from '../../../config'
 
 import MenuLateral from '../../components/MenuLateral'
 import InputSubmit from '../../components/InputSubmit'
@@ -51,7 +52,7 @@ const CadastrarCompras = () => {
   const onSubmit = async data => {
     setLoading(true)
     const res = await useApi({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/comprar',
+      url: `${config.urlBase}/comprar`,
       method: 'post',
       data
     })
