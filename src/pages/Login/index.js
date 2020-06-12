@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 import './Login.scss'
+
+import { useApi } from '../../utils/useApi'
 
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
@@ -17,17 +18,17 @@ const Login = props => {
 
   const verificarCadastro = async data => {
     setLoading(true)
-    return await axios({
+    const res = await useApi({
       url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
       method: 'get'
-    }).then(res => {
-      const cond = res.data.filter(element =>
-        element.email === data.email &&
-        element.senha === data.senha
-      )
-      setLoading(false)
-      return Object.keys(cond).length
     })
+
+    const cond = res.data.filter(element =>
+      element.email === data.email &&
+      element.senha === data.senha
+    )
+    setLoading(false)
+    return Object.keys(cond).length
   }
 
   const onSubmit = async data => {

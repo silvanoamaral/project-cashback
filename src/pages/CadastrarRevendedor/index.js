@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 
 import { maskCpf } from '../../utils/mask'
+import { useApi } from '../../utils/useApi'
 
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
@@ -14,37 +14,35 @@ const CadastrarRevendedor = () => {
 
   const load = async data => {
     setLoading(true)
-    const response = await axios({
+    const response = await useApi({
       url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
       method: 'post',
       data
     })
 
-    setLoading(false)
-
     if(response.status === 201) {
       setMessage('Cadastro realizado com successo ;)')
       reset()
-      document.querySelector('form').querySelectorAll('input')[0].focus()
     } else {
       setMessage('Algo de errado não está certo, tente novamente.')
     }
+
+    setLoading(false)
   }
 
   const verificarCadastro = async cpf => {
     setLoading(true)
-    return await axios({
-      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/cadastro',
+    const res = await useApi({
+      url: 'https://5e0e83b236b80000143dbd0e.mockapi.io/api/revendedores',
       method: 'get'
-    }).then(res => {
-      setLoading(false)
-      return Object.keys(res.data.filter(element => Number(element.cpf) === Number(cpf))).length
     })
+    return Object.keys(res.data.filter(element => element.cpf === cpf)).length    
   }
 
   const onSubmit = async data => {
     if(await verificarCadastro(data.cpf)) {
-      setMessage(`O CPF ${data.cpf}, já existente.`)
+      setMessage(`O CPF ${data.cpf}, já existente.`)      
+      setLoading(false)
     } else {
       load(data)
     }

@@ -39,7 +39,7 @@ InputCustomizado.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   inputRef: PropTypes.func,
-  error: PropTypes.string,
+  error: PropTypes.object,
   message: PropTypes.string,
   onChange: PropTypes.func,
   max: PropTypes.number
