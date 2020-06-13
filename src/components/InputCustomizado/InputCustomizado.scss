@@ -1,3 +1,5 @@
+@import '../../assets/css/variables.scss';
+
 .field {
   display: flex;
   flex-direction: column;
@@ -10,7 +12,7 @@
 
   p.error {
     font-size: 11px;
-    color: red;
+    color: $message-error;
     margin-top: 5px;
   }
 }

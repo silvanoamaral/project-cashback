@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const MessageAlert = props => {
   const {
@@ -12,3 +13,8 @@ const MessageAlert = props => {
 }
 
 export default MessageAlert
+
+MessageAlert.propTypes = {
+  error: PropTypes.bool,
+  text: PropTypes.string
+}

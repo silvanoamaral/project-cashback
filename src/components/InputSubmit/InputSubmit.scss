@@ -1,6 +1,8 @@
+@import '../../assets/css/variables.scss';
+
 .btn {
-  background-color: #1976d2;
-  color: #fff;
+  background-color: $light-blue-color;
+  color: $white-color;
   cursor: pointer;
   border: 0;
   font-size: 0.875rem;

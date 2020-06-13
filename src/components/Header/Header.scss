@@ -1,5 +1,7 @@
+@import '../../assets/css/variables.scss';
+
 header {
-  background: #000;
+  background: $black-color;
   padding: 16px 0;
   margin-bottom: 40px;
   min-height: 50px;
@@ -15,7 +17,7 @@ header {
 
     a {
       font-family: 'Ubuntu', sans-serif;
-      color: #fff;
+      color: $white-color;
       font-size: 33px;
     }
   }

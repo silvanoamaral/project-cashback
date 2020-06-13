@@ -1,8 +1,10 @@
+@import '../../assets/css/variables.scss';
+
 .menuLateral {
   width: 90%;
   margin: 0 auto 30px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid $light-gray-color;
 
   @media (min-width: 768px) {
     width: 180px;
@@ -38,7 +40,7 @@
 
             &:after {
               content: '';
-              border: solid black;
+              border: solid $black-color;
               border-width: 0 2px 2px 0;
               display: inline-block;
               padding: 4px;

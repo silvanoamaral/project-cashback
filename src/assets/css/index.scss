@@ -79,9 +79,10 @@ input[type=number] {
 
   .message {
     margin-bottom: 20px;
+    color: #003180;
 
     &.alert {
-      color: red;
+      color: #80001b;
     }
   }
 }

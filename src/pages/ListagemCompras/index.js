@@ -50,7 +50,7 @@ const ListagemCompras = () => {
                 return <ListaCompra
                   data={lista}
                   key={lista.id}
-                  class={
+                  formata={
                     lista.status === 'Aprovado' ? 'aprovado' :
                     lista.status === 'Reprovado' ? 'reprovado' : 'status'
                   }

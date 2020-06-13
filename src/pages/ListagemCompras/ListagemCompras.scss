@@ -1,3 +1,5 @@
+@import '../../assets/css/variables.scss';
+
 ul {
   &.lista {
     display: flex;
@@ -26,13 +28,13 @@ ul {
         font-weight: 600;
 
         &.aprovado {
-          color: #008000;
+          color: $green-color;
         }
         &.reprovado {
-          color: #80001b;
+          color: $message-error;
         }
         &.status {
-          color: #003180;
+          color: $blue-color;
         }
       }
 
