@@ -45,10 +45,9 @@ const ListagemCompras = () => {
 
         {listaCompra &&
           <ul className="lista">
-            {
-              listaCompra.map(lista => {
+            {listaCompra.map(lista => {
                 return <ListaCompra
-                  data={lista}
+                  {...lista}
                   key={lista.id}
                   formata={
                     lista.status === 'Aprovado' ? 'aprovado' :

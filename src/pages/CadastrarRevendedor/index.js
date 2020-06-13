@@ -10,7 +10,14 @@ import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
 
 const CadastrarRevendedor = () => {
-  const { register, handleSubmit, setValue, reset, errors } = useForm()
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    errors
+  } = useForm()
+
   const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -44,7 +51,7 @@ const CadastrarRevendedor = () => {
       url: `${config.urlBase}/revendedores`,
       method: 'get'
     })
-    return Object.keys(res.data.filter(element => element.cpf === cpf)).length    
+    return Object.keys(res.data.filter(element => element.cpf === cpf)).length
   }
 
   const onSubmit = async data => {

@@ -13,8 +13,16 @@ import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
 
 const Login = props => {
-  const { history } = props
-  const { register, handleSubmit, errors } = useForm()
+  const {
+    history
+  } = props
+
+  const {
+    register,
+    handleSubmit,
+    errors
+  } = useForm()
+
   const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(false)
 

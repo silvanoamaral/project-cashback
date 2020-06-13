@@ -11,8 +11,9 @@ const ListaCompra = props => {
     codigo,
     valor,
     date,
-    status
-  } = props.data
+    status,
+    formata
+  } = props
 
   return(
     <li>
@@ -21,7 +22,7 @@ const ListaCompra = props => {
       <p><strong>Data da compra</strong>: {formatDate(date)}</p>
       <p><strong>Cashback</strong>: 5%</p>            
       <p><strong>Receba de volta</strong>: R$ {calcularCashBack(valor)}</p>                  
-      <p className={props.formata}><strong>Status da compra</strong>: {status}</p>
+      <p className={formata}><strong>Status da compra</strong>: {status}</p>
     </li>
   )
 }
