@@ -20,7 +20,7 @@ const ListaCompra = props => {
       <p><strong>Data da compra</strong>: {formatDate(date)}</p>
       <p><strong>Cashback</strong>: 5%</p>            
       <p><strong>Receba de volta</strong>: R$ {calcularCashBack(valor)}</p>                  
-      <p><strong>Status da compra</strong>: {status}</p>
+      <p class={props.class}><strong>Status da compra</strong>: {status}</p>
     </li>
   )
 }

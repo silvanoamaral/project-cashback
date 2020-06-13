@@ -43,7 +43,14 @@ const ListagemCompras = () => {
           <ul className="lista">
             {
               listaCompra.map(lista => {
-                return <ListaCompra data={lista} key={lista.id} />
+                return <ListaCompra
+                  data={lista}
+                  key={lista.id}
+                  class={
+                    lista.status === 'Aprovado' ? 'aprovado' :
+                    lista.status === 'Reprovado' ? 'reprovado' : 'status'
+                  }
+                />
               })
             }
           </ul>
