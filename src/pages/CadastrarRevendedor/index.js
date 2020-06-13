@@ -5,6 +5,7 @@ import { maskCpf } from '../../utils/mask'
 import { useApi } from '../../utils/useApi'
 import config from '../../../config'
 
+import MessageAlert from '../../components/MessageAlert'
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
 
@@ -22,10 +23,16 @@ const CadastrarRevendedor = () => {
     })
 
     if(response.status === 201) {
-      setMessage('Cadastro realizado com successo ;)')
+      setMessage({
+        text: 'Cadastro realizado com successo ;)',
+        error: false
+      })
       reset()
     } else {
-      setMessage('Algo de errado não está certo, tente novamente.')
+      setMessage({
+        text: 'Algo de errado não está certo, tente novamente.',
+        error: true
+      })
     }
 
     setLoading(false)
@@ -42,7 +49,10 @@ const CadastrarRevendedor = () => {
 
   const onSubmit = async data => {
     if(await verificarCadastro(data.cpf)) {
-      setMessage(`O CPF ${data.cpf}, já existente.`)      
+      setMessage({
+        text: `O CPF ${data.cpf}, já existente.`,
+        error: true
+      })
       setLoading(false)
     } else {
       load(data)
@@ -61,7 +71,7 @@ const CadastrarRevendedor = () => {
         <h2>Cadastrar revendedor(a)</h2>
 
         {message &&
-          <p className='message'>{message}</p>
+          <MessageAlert {...message} />
         }
 
         <form onSubmit={handleSubmit(onSubmit)}>

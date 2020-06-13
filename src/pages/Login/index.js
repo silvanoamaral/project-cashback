@@ -8,6 +8,7 @@ import './Login.scss'
 import { useApi } from '../../utils/useApi'
 import config from '../../../config'
 
+import MessageAlert from '../../components/MessageAlert'
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
 
@@ -34,22 +35,28 @@ const Login = props => {
 
   const onSubmit = async data => {
     if(await verificarCadastro(data)) {
-      setMessage('Usuário cadastrado, direciona para página restrita')
+      setMessage({
+        text: 'Usuário cadastrado, direciona para página restrita',
+        error: false
+      })
       history.push('/listagem-compras')
     } else {
-      setMessage('Usuário ou senha inválidos')
+      setMessage({
+        text: 'Usuário ou senha inválidos',
+        error: true
+      })
     }
   }
 
   return(
     <div>
       <h2>Entrar com e-mail e senha:</h2>
-
-      {message &&
-        <p className='message alert'>{message}</p>
-      }
       
-      <form onSubmit={handleSubmit(onSubmit)}>       
+      {message &&
+        <MessageAlert {...message} />
+      }
+
+      <form onSubmit={handleSubmit(onSubmit)}>    
         <InputCustomizado
           label='E-mail'
           name='email'          

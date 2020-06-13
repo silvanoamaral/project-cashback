@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useApi } from '../../utils/useApi'
 import config from '../../../config'
 
+import MessageAlert from '../../components/MessageAlert'
 import MenuLateral from '../../components/MenuLateral'
 import ListaCompra from '../../components/ListaCompra'
 
@@ -21,7 +22,10 @@ const ListagemCompras = () => {
     if(response.status === 200) {
       setListaCompra(response.data)
     } else {
-      setMessage('Algo de errado não está certo, tente novamente.')
+      setMessage({
+        text: 'Algo de errado não está certo, tente novamente.',
+        error: true
+      })
     }
   }
 
@@ -36,7 +40,7 @@ const ListagemCompras = () => {
         <h2>Olá revendedor(a), veja bem vindo!</h2>
 
         {message &&
-          <p className='message'>{message}</p>
+          <MessageAlert {...message} />
         }
 
         {listaCompra &&

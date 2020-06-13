@@ -10,6 +10,7 @@ import { maskPreco } from '../../utils/mask'
 import { useApi } from '../../utils/useApi'
 import config from '../../../config'
 
+import MessageAlert from '../../components/MessageAlert'
 import MenuLateral from '../../components/MenuLateral'
 import InputSubmit from '../../components/InputSubmit'
 import InputCustomizado from '../../components/InputCustomizado'
@@ -38,7 +39,15 @@ const CadastrarCompras = () => {
     status: '',
   }
 
-  const { register, handleSubmit, setValue, control, reset, errors } = useForm({defaultValues})
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    control,
+    errors
+  } = useForm({defaultValues})
+
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState(null)
   const classes = useStyles()
@@ -58,9 +67,15 @@ const CadastrarCompras = () => {
     })
 
     if(res.status === 201) {
-      setMessage('Compra registrada com sucesso.')
+      setMessage({
+        text: 'Compra registrada com sucesso.',
+        error: false
+      })
     } else {
-      setMessage('Algo de errado não está certo, tente novamente.')
+      setMessage({
+        text: 'Algo de errado não está certo, tente novamente.',
+        error: true
+      })
     }
     reset()
     setLoading(false)
@@ -73,7 +88,7 @@ const CadastrarCompras = () => {
         <h2>Cadastrar Compras</h2>
 
         {message &&
-          <p className='message'>{message}</p>
+          <MessageAlert {...message} />
         }
 
         <form onSubmit={handleSubmit(onSubmit)}>
