@@ -30,9 +30,9 @@ const ListaCompra = props => {
 export default ListaCompra
 
 ListaCompra.propTypes = {
-  codigo: PropTypes.number,
-  valor: PropTypes.number,
-  date: PropTypes.number,
+  codigo: PropTypes.string,
+  valor: PropTypes.string,
+  date: PropTypes.string,
   status: PropTypes.string,
   formata: PropTypes.string,
 }

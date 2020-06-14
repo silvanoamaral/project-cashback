@@ -17,8 +17,8 @@ const InputCustomizado = props => {
 
   return(
     <div className='field'>
-      <label>{label}</label>
-      <input
+      <label htmlFor={name}>{label}</label>
+      <input        
         type={type}
         name={name}
         ref={inputRef}
