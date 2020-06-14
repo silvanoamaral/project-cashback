@@ -1,0 +1,80 @@
+.cashback {
+  margin-bottom: 30px;
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      justify-content: left;
+    }
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+
+  &__btn {
+    color: blue;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .lightbox {
+    position: fixed;
+    top: 0;
+    background: #00000070;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    text-align: center;
+
+    > div {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 15px;
+      position: relative;
+      width: 80%;
+      height: 160px;
+      margin: 0 auto;
+      transform: translate(-5px, 30%);
+
+      @media (min-width: 768px) {
+        transform: translate(0, 43%);
+        width: 560px;
+        height: 60px;
+        padding: 50px;
+      }
+
+      > div {
+        p {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+
+          @media (min-width: 768px) {
+            justify-content: left;
+          }
+        }
+      }
+
+      button {
+        position: absolute;
+        top: -20px;
+        right: -17px;
+        border-radius: 54px;
+        background-color: #fff;
+        min-width: 35px;
+        color: #1976d2;
+        font-weight: 700;
+        height: 35px;
+      }
+    }
+  }
+}

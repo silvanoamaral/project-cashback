@@ -9,9 +9,25 @@ const consolidado = async (req, res, next) => {
       method: 'get'
     })
 
-    const total = response.data.reduce((a, {valor}) => a + parseFloat(valor), 0)
+    const isAprovado = (valor, status) => {
+      if(status === 'Aprovado')
+        return parseFloat(valor)
+      else
+        return 0
+    }
 
-    res.send(total.toFixed(2))
+    const formatValor = str => {
+      let value = str.toString().replace( /\D/g , "")
+      value = value.replace(/([0-9]{2})$/g, ",$1")
+      if(value.length > 6)
+        value = value.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2")
+
+      return value
+    }
+
+    const total = response.data.reduce((a, {valor, status}) => a + isAprovado(valor, status), 0)
+
+    res.send(formatValor(total.toFixed(2)))
   } catch(error) {
     next({})
   }

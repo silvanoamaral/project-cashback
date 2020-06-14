@@ -6,6 +6,7 @@ import config from '../../../config'
 import MessageAlert from '../../components/MessageAlert'
 import MenuLateral from '../../components/MenuLateral'
 import ListaCompra from '../../components/ListaCompra'
+import CashbackAcumulado from '../../components/CashbackAcumulado'
 
 import './ListagemCompras.scss'
 
@@ -39,24 +40,29 @@ const ListagemCompras = () => {
       <div className='col'>
         <h2>Olá revendedor(a), veja bem vindo!</h2>
 
+        <CashbackAcumulado />
+
         {message &&
           <MessageAlert {...message} />
         }
 
         {listaCompra &&
-          <ul className="lista">
-            {listaCompra.map(lista => {
-                return <ListaCompra
-                  {...lista}
-                  key={lista.id}
-                  formata={
-                    lista.status === 'Aprovado' ? 'aprovado' :
-                    lista.status === 'Reprovado' ? 'reprovado' : 'status'
-                  }
-                />
-              })
-            }
-          </ul>
+          <>
+            <h3>Lista de compras</h3>
+            <ul className="lista">
+              {listaCompra.map(lista => {
+                  return <ListaCompra
+                    {...lista}
+                    key={lista.id}
+                    formata={
+                      lista.status === 'Aprovado' ? 'aprovado' :
+                      lista.status === 'Reprovado' ? 'reprovado' : 'status'
+                    }
+                  />
+                })
+              }
+            </ul>
+          </>
         }
       </div>
     </div>
