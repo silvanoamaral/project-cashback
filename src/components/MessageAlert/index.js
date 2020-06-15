@@ -8,7 +8,10 @@ const MessageAlert = props => {
   } = props
 
   return(
-    <p className={`message ${error ? 'alert' : ''}`} data-testid='message'>{text}</p>
+    <p
+      className={`message ${error ? 'alert' : ''}`}
+      data-testid='message'
+    >{text}</p>
   )
 }
 

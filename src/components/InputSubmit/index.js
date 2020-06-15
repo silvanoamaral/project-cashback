@@ -14,7 +14,7 @@ const InputSubmit = props => {
       className='btn'
       type='submit'
       disabled={loading}
-      value={loading ? 'Aguarde...': label}
+      value={loading ? 'Aguarde...' : label}
     />
   )
 }

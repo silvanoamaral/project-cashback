@@ -41,9 +41,15 @@ npm run server
 
 ```
 
-### `Para executar os testes de unidade`
+### `Dados para efetuar o login`
+* E-mail: `teste@gmail.com`
+* Senha: `123456`
+
+### `Para executar os teste unitário`
 * Comando de execução `npm run test:watch`
 
 ### `Para executar os testes E2E`
 * Comando de execução `npm run cypress`
 * Ajuda [cypress](https://docs.cypress.io/guides/overview/why-cypress.html#Running-tests)
+
+![NewGIF](https://user-images.githubusercontent.com/24282267/84712592-5a3d7900-af3f-11ea-96dd-69e92b077d61.gif)

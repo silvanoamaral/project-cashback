@@ -34,6 +34,7 @@ const CashbackAcumulado = () => {
   const handleClickOpen = () => {
     setVisivel(true)
   }
+
   const handleClickClose = () => {
     setVisivel(false)
   }

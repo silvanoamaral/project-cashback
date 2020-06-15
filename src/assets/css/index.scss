@@ -27,8 +27,8 @@ input {
   padding: 10px 0;
   text-indent: 10px;
   line-height: 1.5;
-  color: #495057;
-  border: 1px solid #ced4da;
+  color: $gray-color;
+  border: 1px solid $light-gray-color;
   border-radius: 5px;
 }
 
@@ -84,10 +84,10 @@ input[type=number] {
 
   .message {
     margin-bottom: 20px;
-    color: #003180;
+    color: $blue-color;
 
     &.alert {
-      color: #80001b;
+      color: $message-error;
     }
   }
 }

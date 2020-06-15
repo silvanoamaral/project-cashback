@@ -1,3 +1,5 @@
+@import '../../assets/css/variables.scss';
+
 .cashback {
   margin-bottom: 30px;
 
@@ -18,7 +20,7 @@
   }
 
   &__btn {
-    color: blue;
+    color: $blue-color;
     cursor: pointer;
 
     &:hover {
@@ -36,7 +38,7 @@
     text-align: center;
 
     > div {
-      background-color: #fff;
+      background-color: $white-color;
       border-radius: 5px;
       padding: 15px;
       position: relative;
@@ -69,9 +71,9 @@
         top: -20px;
         right: -17px;
         border-radius: 54px;
-        background-color: #fff;
+        background-color: $white-color;
         min-width: 35px;
-        color: #1976d2;
+        color: $light-blue-color;
         font-weight: 700;
         height: 35px;
       }
