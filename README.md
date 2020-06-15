@@ -1,10 +1,10 @@
 ## Projeto Cashback
 
-## Live demo (Prd)
+### `Live demo (Prd)`
 
 Projeto [aqui](https://project-cashback.herokuapp.com/)
 
-## Desenvolvido
+### `Desenvolvido`
 
 * HTML
 * CSS / SASS
@@ -16,7 +16,7 @@ Projeto [aqui](https://project-cashback.herokuapp.com/)
 * Cypress
 * ESLint
 
-## Começando
+### `Começando`
 
 Essas instruções fornecerão uma cópia do projeto em execução na máquina local para fins de desenvolvimento e teste
 
