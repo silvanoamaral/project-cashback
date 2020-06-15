@@ -41,7 +41,7 @@ npm run server
 
 ```
 
-## Para rodar o projeto, basta executar o comando:
+### Para rodar o projeto, basta executar o comando:
 * npm start
 
 ### `Dados para efetuar o login`
