@@ -1,15 +1,27 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
 
 import ListagemCompras from './'
 
 describe('PageView <ListagemCompras />', () => {
-  const comp = (
-    <ListagemCompras />
-  )
-  const wrapper = shallow( comp )
+  it('Fetch Load', async () => {
+    const { container, getByTestId } = render(<Router history={createMemoryHistory()}><ListagemCompras /></Router>)
 
-  it('renders <ListagemCompras />', () => {
-    expect(wrapper.find('h2')).toHaveLength(1)
+    const btn = getByTestId('btnCashback')
+    fireEvent.click(btn)
+
+    const btnClose = getByTestId('btnCashbackClose')
+    fireEvent.click(btnClose)
+
+    await waitForElementToBeRemoved(async () => {
+      const titulo = container.querySelector('h2')
+      if(titulo) {
+        expect(titulo.innerHTML).toBe('Olá revendedor(a), veja bem vindo!')
+      }
+    }).catch(err =>
+      err
+    )
   })
 })

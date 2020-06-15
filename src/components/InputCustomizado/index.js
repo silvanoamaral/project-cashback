@@ -18,9 +18,10 @@ const InputCustomizado = props => {
   return(
     <div className='field'>
       <label htmlFor={name}>{label}</label>
-      <input        
+      <input
         type={type}
         name={name}
+        data-testid={name}
         ref={inputRef}
         onChange={onChange}
         maxLength={max}

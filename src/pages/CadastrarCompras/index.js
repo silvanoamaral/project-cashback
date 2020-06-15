@@ -91,7 +91,7 @@ const CadastrarCompras = () => {
           <MessageAlert {...message} />
         }
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} data-testid='form'>
           <InputCustomizado
             label='Código'
             name='codigo'
@@ -122,6 +122,7 @@ const CadastrarCompras = () => {
                   variant='outlined'
                 />
               }
+              data-testid='date'
               name='date'
               control={control}
               defaultValue=''
@@ -136,7 +137,7 @@ const CadastrarCompras = () => {
             <label>Status da Comprar</label>
             <Controller
               as={
-                <RadioGroup className={classes.group}>
+                <RadioGroup className={classes.group} data-testid='state'>
                   <FormControlLabel value='Em validação' control={<Radio /> } label='Em validação' />
                   <FormControlLabel value='Reprovado' control={<Radio /> } label='Reprovado' />
                   <FormControlLabel value='Aprovado' control={<Radio /> } label='Aprovado' />

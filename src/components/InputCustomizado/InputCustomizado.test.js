@@ -4,16 +4,15 @@ import { shallow } from 'enzyme'
 import InputCustomizado from './'
 
 describe('PageView <InputCustomizado />', () => {
-  const dados = {
-    name: 'email',
-    error: {}
-  }
-  const comp = (
-    <InputCustomizado {...dados} />
-  )
-  const wrapper = shallow( comp )
-
   it('renders <InputCustomizado />', () => {
+    const dados = {
+      name: 'email',
+      error: {},
+      message: 'teste'
+    }
+  
+    const wrapper = shallow( <InputCustomizado {...dados} /> )
+
     expect(wrapper.find('.field')).toHaveLength(1)
   })
 })

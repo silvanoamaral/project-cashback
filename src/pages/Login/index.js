@@ -64,7 +64,7 @@ const Login = props => {
         <MessageAlert {...message} />
       }
 
-      <form onSubmit={handleSubmit(onSubmit)}>    
+      <form onSubmit={handleSubmit(onSubmit)} data-testid='form'>    
         <InputCustomizado
           label='E-mail'
           name='email'          

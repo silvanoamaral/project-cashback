@@ -43,7 +43,12 @@ const CashbackAcumulado = () => {
       <div>
         <img src={cashback} alt='cashback' />
         <p>
-          Seu Cashback acumulado, <span onClick={handleClickOpen} className='cashback__btn'>visualizar</span>.
+          Seu Cashback acumulado, 
+          <span
+            onClick={handleClickOpen}
+            className='cashback__btn'
+            data-testid='btnCashback'
+          >visualizar</span>.
         </p>
       </div>
       {visivel &&
@@ -51,6 +56,7 @@ const CashbackAcumulado = () => {
           <div>
             <button
               className='btn'
+              data-testid='btnCashbackClose'
               onClick={handleClickClose}
             >X</button>
             {message ?
