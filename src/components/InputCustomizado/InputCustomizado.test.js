@@ -5,9 +5,10 @@ import InputCustomizado from './'
 
 describe('PageView <InputCustomizado />', () => {
   it('renders <InputCustomizado />', () => {
+    const error = {email: {message: 'teste'}}
     const dados = {
       name: 'email',
-      error: {},
+      error,
       message: 'teste'
     }
   

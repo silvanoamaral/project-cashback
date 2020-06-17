@@ -1,9 +1,11 @@
 import React from 'react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
-import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, fireEvent, waitForElementToBeRemoved, cleanup } from '@testing-library/react'
 
 import ListagemCompras from './'
+
+afterEach(cleanup)
 
 describe('PageView <ListagemCompras />', () => {
   it('Fetch Load', async () => {

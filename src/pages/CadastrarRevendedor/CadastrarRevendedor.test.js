@@ -1,7 +1,9 @@
 import React from 'react'
-import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, fireEvent, waitForElementToBeRemoved, cleanup } from '@testing-library/react'
 
 import CadastrarRevendedor from './'
+
+afterEach(cleanup)
 
 describe('PageView <CadastrarRevendedor />', () => {
   it('CPF já cadastrado', async () => {

@@ -1,13 +1,19 @@
 import React from 'react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
-import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, fireEvent, waitForElementToBeRemoved, cleanup } from '@testing-library/react'
 
 import CadastrarCompras from './'
 
+afterEach(cleanup)
+
 describe('PageView <CadastrarCompras />', () => {
-  it('Cadatrar compras', async () => {
-    const { container, getByTestId } = render(<Router history={createMemoryHistory()}><CadastrarCompras /></Router>)
+  it('Cadastrar compras', async () => {
+    const { container, getByTestId } = render(
+      <Router history={createMemoryHistory()}>
+        <CadastrarCompras />
+      </Router>
+    )
     
     const codigo = getByTestId('codigo')
     const valor = getByTestId('valor')
@@ -17,17 +23,16 @@ describe('PageView <CadastrarCompras />', () => {
 
     fireEvent.change(codigo, { target: { value: '123456' } })
     fireEvent.change(valor, { target: { value: '123456' } })
-    fireEvent.change(date.querySelector('input'), { target: { value: '12-12-2020' } })
+    fireEvent.change(date.querySelector('input'), { target: { value: '2020-12-12' } })
     fireEvent.click(state.querySelector('input[value="Em validação"]'))
 
     fireEvent.submit(form)
 
     await waitForElementToBeRemoved(async () => {
-      const message = container.querySelector('.message')
-      
-      /* if(message) {
-        expect(message.innerHTML).toBe('Cadastro realizado com sucesso.')
-      } */
+      if(container.querySelector('.message')) {
+        expect(container.querySelector('.message').textContent)
+        .toEqual('Compra registrada com sucesso.')
+      }
     }).catch(err =>
       err
     )

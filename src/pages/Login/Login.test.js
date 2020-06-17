@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router } from 'react-router-dom'
-import { render, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, fireEvent, waitForElementToBeRemoved, cleanup } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 
 import Login from './'
@@ -13,6 +13,8 @@ beforeEach(() => {
     }
   }
 })
+
+afterEach(cleanup)
 
 describe('PageView <Login />', () => {
   it('Usuário inválido', async () => {
