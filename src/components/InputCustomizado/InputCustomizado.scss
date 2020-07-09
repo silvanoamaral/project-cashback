@@ -11,8 +11,8 @@
   }
 
   p.error {
-    font-size: 11px;
-    color: $message-error;
     margin-top: 5px;
+    color: $message-error;
+    font-size: 11px;
   }
 }

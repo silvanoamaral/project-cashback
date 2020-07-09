@@ -8,9 +8,9 @@
 
   @media (min-width: 768px) {
     width: 180px;
+    margin: 0 auto;
     padding: 0;
     border: 0;
-    margin: 0 auto;
   }
   @media (min-width: 1024px) {
     margin: 0;
@@ -22,32 +22,31 @@
 
     @media (min-width: 768px) {
       flex-direction: column;
-    } 
+    }
 
     li {
-      padding: 5px 0;
       position: relative;
+      padding: 5px 0;
 
       a {
         opacity: .8;
 
         &.active {
-          opacity: 1;
           font-weight: 700;
+          opacity: 1;
 
           @media (min-width: 768px) {
             font-weight: normal;
 
             &:after {
-              content: '';
-              border: solid $black-color;
-              border-width: 0 2px 2px 0;
-              display: inline-block;
-              padding: 4px;
-              transform: rotate(-45deg);
-              -webkit-transform: rotate(-45deg);
               position: relative;
               right: -5px;
+              display: inline-block;
+              padding: 4px;
+              border: solid $black-color;
+              border-width: 0 2px 2px 0;
+              transform: rotate(-45deg);
+              content: '';
             }
           }
         }

@@ -1,13 +1,13 @@
 @import '../../assets/css/variables.scss';
 
 header {
-  background: $black-color;
-  padding: 16px 0;
-  margin-bottom: 40px;
-  min-height: 50px;
   display: flex;
   align-items: center;
+  min-height: 50px;
+  margin-bottom: 40px;
+  padding: 16px 0;
   text-align: center;
+  background: $black-color;
 
   .container {
     @media (min-width: 768px) {
@@ -16,9 +16,9 @@ header {
     }
 
     a {
-      font-family: 'Ubuntu', sans-serif;
       color: $white-color;
       font-size: 33px;
+      font-family: 'Ubuntu', sans-serif;
     }
   }
 }

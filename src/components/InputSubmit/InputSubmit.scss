@@ -1,13 +1,13 @@
 @import '../../assets/css/variables.scss';
 
 .btn {
-  background-color: $light-blue-color;
-  color: $white-color;
-  cursor: pointer;
-  border: 0;
-  font-size: 0.875rem;
   min-width: 64px;
+  color: $white-color;
+  font-size: 0.875rem;
   text-transform: uppercase;
+  background-color: $light-blue-color;
+  border: 0;
+  cursor: pointer;
 
   &:disabled {
     opacity: .5;
