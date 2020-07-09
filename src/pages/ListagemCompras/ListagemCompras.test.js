@@ -19,7 +19,7 @@ describe('PageView <ListagemCompras />', () => {
 
     await waitForElementToBeRemoved(async () => {
       const titulo = container.querySelector('h2')
-      if(titulo) {
+      if (titulo) {
         expect(titulo.innerHTML).toBe('Olá revendedor(a), veja bem vindo!')
       }
     }).catch(err =>

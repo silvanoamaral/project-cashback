@@ -15,7 +15,7 @@ const InputCustomizado = props => {
     max
   } = props
 
-  return(
+  return (
     <div className='field'>
       <label htmlFor={name}>{label}</label>
       <input

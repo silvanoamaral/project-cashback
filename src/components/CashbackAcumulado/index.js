@@ -13,11 +13,11 @@ const CashbackAcumulado = () => {
 
   const load = async () => {
     const response = await useApi({
-      url: `/api/consolidado`,
+      url: '/api/consolidado',
       method: 'get'
     })
 
-    if(response.status === 200) {
+    if (response.status === 200) {
       setValor(response.data)
     } else {
       setMessage({
@@ -39,12 +39,12 @@ const CashbackAcumulado = () => {
     setVisivel(false)
   }
 
-  return(
+  return (
     <div className='cashback'>
       <div>
         <img src={cashback} alt='cashback' />
         <p>
-          Seu Cashback acumulado, 
+          Seu Cashback acumulado,
           <span
             onClick={handleClickOpen}
             className='cashback__btn'
@@ -60,13 +60,12 @@ const CashbackAcumulado = () => {
               data-testid='btnCashbackClose'
               onClick={handleClickClose}
             >X</button>
-            {message ?
-              <MessageAlert {...message} />
-              :
-              <div>
+            {message
+              ? <MessageAlert {...message} />
+              : <div>
                 <p>
                   <img src={cashback} alt='cashback' />
-                  Seu Valor de Cashback acumulado até o momento: 
+                  Seu Valor de Cashback acumulado até o momento:
                   <strong>R$ {valor}</strong>
                 </p>
               </div>

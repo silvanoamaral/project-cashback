@@ -14,7 +14,7 @@ describe('PageView <CadastrarCompras />', () => {
         <CadastrarCompras />
       </Router>
     )
-    
+
     const codigo = getByTestId('codigo')
     const valor = getByTestId('valor')
     const date = getByTestId('date')
@@ -29,9 +29,9 @@ describe('PageView <CadastrarCompras />', () => {
     fireEvent.submit(form)
 
     await waitForElementToBeRemoved(async () => {
-      if(container.querySelector('.message')) {
+      if (container.querySelector('.message')) {
         expect(container.querySelector('.message').textContent)
-        .toEqual('Compra registrada com sucesso.')
+          .toEqual('Compra registrada com sucesso.')
       }
     }).catch(err =>
       err

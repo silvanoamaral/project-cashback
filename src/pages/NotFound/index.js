@@ -1,7 +1,7 @@
 import React from 'react'
 
 const NotFound = () => {
-  return(
+  return (
     <h2>NotFound </h2>
   )
 }

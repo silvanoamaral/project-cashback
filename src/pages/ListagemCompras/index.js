@@ -13,14 +13,14 @@ import './ListagemCompras.scss'
 const ListagemCompras = () => {
   const [listaCompra, setListaCompra] = useState(null)
   const [message, setMessage] = useState(null)
- 
+
   const load = async () => {
     const response = await useApi({
       url: `${config.urlBase}/comprar`,
       method: 'get'
     })
 
-    if(response.status === 200) {
+    if (response.status === 200) {
       setListaCompra(response.data)
     } else {
       setMessage({
@@ -34,7 +34,7 @@ const ListagemCompras = () => {
     load()
   }, [])
 
-  return(
+  return (
     <div className='content'>
       <MenuLateral />
       <div className='col'>
@@ -51,15 +51,14 @@ const ListagemCompras = () => {
             <h3>Lista de compras</h3>
             <ul className="lista">
               {listaCompra.map(lista => {
-                  return <ListaCompra
-                    {...lista}
-                    key={lista.id}
-                    formata={
-                      lista.status === 'Aprovado' ? 'aprovado' :
-                      lista.status === 'Reprovado' ? 'reprovado' : 'status'
-                    }
-                  />
-                })
+                return <ListaCompra
+                  {...lista}
+                  key={lista.id}
+                  formata={
+                    lista.status === 'Aprovado' ? 'aprovado' : lista.status === 'Reprovado' ? 'reprovado' : 'status'
+                  }
+                />
+              })
               }
             </ul>
           </>

@@ -9,7 +9,7 @@ describe('PageView <InputSubmit />', () => {
     label: 'Enviar'
   }
 
-  const wrapper = shallow( <InputSubmit {...dados} /> )
+  const wrapper = shallow(<InputSubmit {...dados} />)
 
   it('renders <InputSubmit loadin={false} />', () => {
     expect(wrapper.find('.btn')).toHaveLength(1)

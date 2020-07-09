@@ -7,7 +7,7 @@ const MessageAlert = props => {
     text
   } = props
 
-  return(
+  return (
     <p
       className={`message ${error ? 'alert' : ''}`}
       data-testid='message'

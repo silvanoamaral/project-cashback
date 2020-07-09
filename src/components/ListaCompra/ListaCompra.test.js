@@ -12,7 +12,7 @@ describe('PageView <ListaCompra />', () => {
     formata: 'aprovado'
   }
 
-  const wrapper = shallow( <ListaCompra {...initialProps} /> )
+  const wrapper = shallow(<ListaCompra {...initialProps} />)
 
   it('renders <ListaCompra />', () => {
     expect(wrapper.find('.aprovado')).toHaveLength(1)

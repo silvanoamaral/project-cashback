@@ -42,7 +42,7 @@ const Login = props => {
   }
 
   const onSubmit = async data => {
-    if(await verificarCadastro(data)) {
+    if (await verificarCadastro(data)) {
       setMessage({
         text: 'Usuário cadastrado, direciona para página restrita',
         error: false
@@ -56,21 +56,21 @@ const Login = props => {
     }
   }
 
-  return(
+  return (
     <div>
       <h2>Entrar com e-mail e senha:</h2>
-      
+
       {message &&
         <MessageAlert {...message} />
       }
 
-      <form onSubmit={handleSubmit(onSubmit)} data-testid='form'>    
+      <form onSubmit={handleSubmit(onSubmit)} data-testid='form'>
         <InputCustomizado
           label='E-mail'
-          name='email'          
+          name='email'
           inputRef={
             register({
-              required: "Required",
+              required: 'Required',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
               }
@@ -83,7 +83,7 @@ const Login = props => {
         <InputCustomizado
           type='password'
           label='Senha'
-          name='senha'          
+          name='senha'
           inputRef={register({ required: true })}
           error={errors}
           message='Senha é obrigatório'
@@ -103,5 +103,5 @@ const Login = props => {
 export default Login
 
 Login.propTypes = {
-  history: PropTypes.object,
+  history: PropTypes.object
 }

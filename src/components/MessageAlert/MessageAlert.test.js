@@ -8,7 +8,7 @@ describe('PageView <MessageAlert />', () => {
     error: false,
     text: 'Mensagem de sucesso.'
   }
-  const wrapper = shallow( <MessageAlert {...initialProps} /> )
+  const wrapper = shallow(<MessageAlert {...initialProps} />)
 
   it('renders <MessageAlert />', () => {
     expect(wrapper.find('.message')).toHaveLength(1)

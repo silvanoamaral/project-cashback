@@ -9,7 +9,7 @@ const InputSubmit = props => {
     label
   } = props
 
-  return(
+  return (
     <input
       className='btn'
       type='submit'
@@ -23,5 +23,5 @@ export default InputSubmit
 
 InputSubmit.propTypes = {
   loading: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.string
 }

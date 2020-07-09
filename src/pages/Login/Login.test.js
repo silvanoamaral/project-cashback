@@ -18,7 +18,7 @@ afterEach(cleanup)
 
 describe('PageView <Login />', () => {
   it('Usuário inválido', async () => {
-    const { container, getByTestId } = render(<Router history={ createMemoryHistory() }><Login /></Router>)
+    const { container, getByTestId } = render(<Router history={createMemoryHistory()}><Login /></Router>)
 
     const email = getByTestId('email')
     const senha = getByTestId('senha')
@@ -30,7 +30,7 @@ describe('PageView <Login />', () => {
 
     await waitForElementToBeRemoved(async () => {
       const message = container.querySelector('.message')
-      if(message) {
+      if (message) {
         expect(message.innerHTML).toBe('Usuário ou senha inválidos')
       }
     }).catch(err =>
@@ -38,8 +38,8 @@ describe('PageView <Login />', () => {
     )
   })
 
-  it('Login sucesso', async () => {    
-    const { container, getByTestId } = render(<Router history={createMemoryHistory()}><Login {...history}/></Router>)
+  it('Login sucesso', async () => {
+    const { container, getByTestId } = render(<Router history={createMemoryHistory()}><Login {...history} /></Router>)
 
     const email = getByTestId('email')
     const senha = getByTestId('senha')
@@ -51,7 +51,7 @@ describe('PageView <Login />', () => {
 
     await waitForElementToBeRemoved(async () => {
       const message = container.querySelector('.message')
-      if(message) {
+      if (message) {
         expect(message.innerHTML).toBe('Usuário cadastrado, direciona para página restrita')
       }
     }).catch(err =>

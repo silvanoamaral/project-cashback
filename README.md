@@ -14,7 +14,7 @@ Projeto [aqui](https://project-cashback.herokuapp.com/)
 * Webpack
 * Jest
 * Cypress
-* ESLint
+* [ESLint](https://eslint.org/) (extendendo a config do [standardjs](https://standardjs.com/))
 
 ### `Começando`
 

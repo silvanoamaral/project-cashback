@@ -20,10 +20,10 @@ describe('PageView <CadastrarRevendedor />', () => {
     fireEvent.change(email, { target: { value: 'silvano@gmail.com' } })
     fireEvent.change(senha, { target: { value: '123456' } })
     fireEvent.submit(form)
-    
+
     await waitForElementToBeRemoved(async () => {
       const message = container.querySelector('.message')
-      if(message) {
+      if (message) {
         expect(message.innerHTML).toBe('O CPF 012.345.678-90, já existente.')
       }
     }).catch(err =>
@@ -47,10 +47,10 @@ describe('PageView <CadastrarRevendedor />', () => {
     fireEvent.change(email, { target: { value: 'testeunitario@gmail.com' } })
     fireEvent.change(senha, { target: { value: '123456' } })
     fireEvent.submit(form)
-    
+
     await waitForElementToBeRemoved(async () => {
-      const message = container.querySelector('.message')      
-      if(message) {
+      const message = container.querySelector('.message')
+      if (message) {
         expect(message.innerHTML).toBe('Cadastro realizado com successo ;)')
       }
     }).catch(err =>

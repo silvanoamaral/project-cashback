@@ -6,6 +6,8 @@ import App from './pages/App'
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </BrowserRouter>,
-document.getElementById('root'))
+  document.getElementById('root'))

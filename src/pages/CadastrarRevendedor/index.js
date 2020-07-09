@@ -29,7 +29,7 @@ const CadastrarRevendedor = () => {
       data
     })
 
-    if(response.status === 201) {
+    if (response.status === 201) {
       setMessage({
         text: 'Cadastro realizado com successo ;)',
         error: false
@@ -55,7 +55,7 @@ const CadastrarRevendedor = () => {
   }
 
   const onSubmit = async data => {
-    if(await verificarCadastro(data.cpf)) {
+    if (await verificarCadastro(data.cpf)) {
       setMessage({
         text: `O CPF ${data.cpf}, já existente.`,
         error: true
@@ -67,12 +67,10 @@ const CadastrarRevendedor = () => {
   }
 
   const onChangeInput = event => {
-    setValue([{
-      'cpf': maskCpf(event.target.value)
-    }])
+    setValue([{ cpf: maskCpf(event.target.value) }])
   }
 
-  return(
+  return (
     <div className='content'>
       <div className='col'>
         <h2>Cadastrar revendedor(a)</h2>
@@ -85,7 +83,7 @@ const CadastrarRevendedor = () => {
           <InputCustomizado
             label='Nome completo'
             name='nome'
-            inputRef={register({ required: true }) }
+            inputRef={register({ required: true })}
             error={errors}
             message='Nome é obrigatório'
           />
@@ -103,10 +101,10 @@ const CadastrarRevendedor = () => {
 
           <InputCustomizado
             label='E-mail'
-            name='email'          
+            name='email'
             inputRef={
               register({
-                required: "Required",
+                required: 'Required',
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
                 }
@@ -119,7 +117,7 @@ const CadastrarRevendedor = () => {
           <InputCustomizado
             type='password'
             label='Senha'
-            name='senha'          
+            name='senha'
             inputRef={register({ required: true })}
             error={errors}
             message='Senha é obrigatório'

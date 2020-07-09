@@ -15,7 +15,7 @@ const ListaCompra = props => {
     formata
   } = props
 
-  return(
+  return (
     <li>
       <p><strong>Código da comprar</strong>: {codigo}</p>
       <p><strong>Valor da compra</strong>: R$ {valor}</p>
@@ -34,5 +34,5 @@ ListaCompra.propTypes = {
   valor: PropTypes.string,
   date: PropTypes.string,
   status: PropTypes.string,
-  formata: PropTypes.string,
+  formata: PropTypes.string
 }

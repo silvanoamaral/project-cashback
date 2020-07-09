@@ -5,7 +5,6 @@ import Login from '../pages/Login'
 import CadastrarRevendedor from '../pages/CadastrarRevendedor'
 import ListagemCompras from '../pages/ListagemCompras'
 import CadastrarCompras from '../pages/CadastrarCompras'
-
 import NotFound from '../pages/NotFound'
 
 const Router = () => (

@@ -22,21 +22,21 @@ const useStyles = makeStyles(() => ({
       padding: '10px 0',
       textIndent: '10px',
       lineHeight: '1.5',
-      color: '#495057',
-    },
+      color: '#495057'
+    }
   },
   group: {
     flexDirection: 'row',
 
     '& .MuiTypography-body1': {
-      fontSize: '13px',
+      fontSize: '13px'
     }
-  },
+  }
 }))
 
 const CadastrarCompras = () => {
   const defaultValues = {
-    status: '',
+    status: ''
   }
 
   const {
@@ -46,7 +46,7 @@ const CadastrarCompras = () => {
     reset,
     control,
     errors
-  } = useForm({defaultValues})
+  } = useForm({ defaultValues })
 
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState(null)
@@ -54,7 +54,7 @@ const CadastrarCompras = () => {
 
   const onChangeInput = event => {
     setValue([{
-      'valor': maskPreco(event.target.value)
+      valor: maskPreco(event.target.value)
     }])
   }
 
@@ -66,7 +66,7 @@ const CadastrarCompras = () => {
       data
     })
 
-    if(res.status === 201) {
+    if (res.status === 201) {
       setMessage({
         text: 'Compra registrada com sucesso.',
         error: false
@@ -81,7 +81,7 @@ const CadastrarCompras = () => {
     setLoading(false)
   }
 
-  return(
+  return (
     <div className='content'>
       <MenuLateral />
       <div className='col'>
@@ -95,17 +95,17 @@ const CadastrarCompras = () => {
           <InputCustomizado
             label='Código'
             name='codigo'
-            type='text'      
+            type='text'
             inputRef={register({ required: true })}
             error={errors}
             message='Código é obrigatório'
             max={10}
-          />   
+          />
           <InputCustomizado
             label='Valor'
             name='valor'
-            type='text' 
-            onChange={onChangeInput}       
+            type='text'
+            onChange={onChangeInput}
             inputRef={register({ required: true })}
             error={errors}
             message='Valor é obrigatório'
@@ -138,9 +138,9 @@ const CadastrarCompras = () => {
             <Controller
               as={
                 <RadioGroup className={classes.group} data-testid='state'>
-                  <FormControlLabel value='Em validação' control={<Radio /> } label='Em validação' />
-                  <FormControlLabel value='Reprovado' control={<Radio /> } label='Reprovado' />
-                  <FormControlLabel value='Aprovado' control={<Radio /> } label='Aprovado' />
+                  <FormControlLabel value='Em validação' control={<Radio />} label='Em validação' />
+                  <FormControlLabel value='Reprovado' control={<Radio />} label='Reprovado' />
+                  <FormControlLabel value='Aprovado' control={<Radio />} label='Aprovado' />
                 </RadioGroup>
               }
               name='status'

@@ -7,7 +7,7 @@ describe('PageView <Header />', () => {
   const comp = (
     <Header />
   )
-  const wrapper = shallow( comp )
+  const wrapper = shallow(comp)
 
   it('renders <Header />', () => {
     expect(wrapper.find('header')).toHaveLength(1)

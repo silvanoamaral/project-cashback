@@ -12,7 +12,7 @@ describe('<CashbackAcumulado />', () => {
     const btnCashback = getByTestId('btnCashback')
     fireEvent.click(btnCashback)
 
-    if(document.querySelector('.lightbox')) {
+    if (document.querySelector('.lightbox')) {
       expect(document.querySelectorAll('.lightbox').length).toBe(1)
     }
   })
