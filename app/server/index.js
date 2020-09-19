@@ -1,8 +1,10 @@
 const express = require('express')
 const path = require('path')
+const newrelic = require('newrelic')
 
 const app = express()
 const port = process.env.PORT || 3001
+app.locals.newrelic = newrelic
 
 const { consolidado } = require('../modules/consolidado')
 app.use('/api/consolidado', consolidado)

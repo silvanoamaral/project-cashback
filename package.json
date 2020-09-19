@@ -22,12 +22,13 @@
     "@material-ui/core": "^4.10.2",
     "axios": "^0.19.2",
     "express": "^4.17.1",
-    "serve": "^11.3.0",
     "jest": "^26.0.1",
+    "newrelic": "^6.13.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "serve": "^11.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
